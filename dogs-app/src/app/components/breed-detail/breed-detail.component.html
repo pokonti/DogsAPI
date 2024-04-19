@@ -1,0 +1,10 @@
+<div *ngIf="subbreeds.length > 0">
+    <ul>
+        <li *ngFor="let subbreed of subbreeds">
+        {{ subbreed }}</li>
+    </ul>
+</div>
+
+<div *ngIf="subbreeds.length == 0">
+    <p>No dogs</p>
+</div>

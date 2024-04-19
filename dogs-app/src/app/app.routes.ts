@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
-import { BreedsComponent } from './breeds/breeds.component';
+import { BreedsComponent } from './components/breeds/breeds.component';
+import { BreedDetailComponent } from './components/breed-detail/breed-detail.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,10 @@ export const routes: Routes = [
     {
         path: 'breeds',
         component: BreedsComponent
+    },
+    {
+        path: 'breeds/:breed',
+        component: BreedDetailComponent
     },
     {
         path: '**',
