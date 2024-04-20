@@ -4,6 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutComponent } from './components/about/about.component';
 import { BreedsComponent } from './components/breeds/breeds.component';
 import { BreedDetailComponent } from './components/breed-detail/breed-detail.component';
+import { SubbreedsComponent } from './components/subbreeds/subbreeds.component';
 
 export const routes: Routes = [
     {
@@ -27,10 +28,10 @@ export const routes: Routes = [
         path: 'breeds/:breed',
         component: BreedDetailComponent
     },
-    // {
-    //     path: 'breeds/:breed/:subbreed',
-    //     component: HomeComponent
-    // },
+    {
+        path: 'breeds/:breed/:subbreed',
+        component: SubbreedsComponent
+    },
     {
         path: '**',
         component: NotFoundComponent

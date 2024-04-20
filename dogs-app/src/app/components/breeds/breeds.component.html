@@ -1,17 +1,17 @@
 <h1>Dogs</h1>
-<div class="container">
     <ul *ngIf="loaded; else loading">
-        <li *ngFor="let breed of breeds">
-            <div class="inner"><a [routerLink]="['/breeds', breed]">
-                    <img *ngIf="images.has(breed)" [src]="images.get(breed)" alt="img">
-                    <p>{{ breed }}</p>
-                </a>
-                
-            </div>
-        </li>
-        
+        <div class="container">
+            <li *ngFor="let breed of breeds">
+                <div class="inner"><a [routerLink]="['/breeds', breed]">
+                        <img *ngIf="images.has(breed)" [src]="images.get(breed)" alt="img">
+                        <p>{{ breed }}</p>
+                    </a>
+                    
+                </div>
+            </li>
+    </div>
     </ul>
-</div>
+
 <ng-template #loading>
     <div class="loadingpic">
         <img id="load-pic" src="../../../assets/1.gif" alt="">

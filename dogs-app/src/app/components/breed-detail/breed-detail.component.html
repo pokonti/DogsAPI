@@ -1,18 +1,27 @@
-<br>
-<br>
+
 <div *ngIf="subbreeds.length > 0; else nodogs" >
-    <div class="container">
-        <ul>
-            <li *ngFor="let subbreed of subbreeds">
-                <div class="inner">
-                    <p> {{ subbreed }}</p>
-                </div>
-            </li>
+    <h1>Sub-breeds</h1>
+        <ul>    
+                <li *ngFor="let subbreed of subbreeds">
+                        <div class="inner"><a [routerLink]="['/breeds', breedName, subbreed]">
+                                <img *ngIf="images.has(subbreed)" [src]="images.get(subbreed)" alt="img">
+                                <p> {{ subbreed }}</p>
+                            </a>
+                        </div>
+                </li>
         </ul>
-    </div>
 </div>
 
 <ng-template #nodogs>
     <p>No sub-breeds found for this breed. </p>
     <p>But you can take a look at the photos of dogs of this breed. </p>
+    <ul>   
+        <div class="container">
+            <li *ngFor="let image of images2">
+                <div class="inner2">
+                        <img [src]="image" alt="img">
+                </div>
+            </li>
+        </div>
+    </ul>
 </ng-template>

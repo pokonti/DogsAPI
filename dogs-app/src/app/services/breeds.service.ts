@@ -20,20 +20,8 @@ export class BreedsService {
   }
 
   getRandomImg(breed: string){
-    return this.http.get<Photo>(`${this.BASE_URL}/breed/${breed}/images/random`);
+    return this.http.get<Photo>(`${this.BASE_URL}/breed/${breed}/images/random`)
   }
-
-  // getRandomImageDog(breed: string) {
-  //   return this.http.get<any>(`${this.BASE_URL}/image/random/`+ breed).pipe(
-  //     map(response => {
-  //       const imagesMap: { [key: string]: string } = {};
-  //       for(const breed in response.message) {
-  //         imagesMap[breed] = response.message[breed];
-  //       }
-  //       return imagesMap;
-  //     })
-  //   );
-  // }
 
   searchDog(query: string){
     return this.http.get<ApiResponse>(`${this.BASE_URL}/list`)
@@ -46,7 +34,15 @@ export class BreedsService {
     );
   }
 
-  getSubbreedImage(breed:string, subbreed: string){
-    return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/images`)
+  getSingleRandomSubbreed(breed:string, subbreed: string){
+    return this.http.get<Photo>(`${this.BASE_URL}/breed/${breed}/${subbreed}/images/random`);
+  }
+
+  getMultipleRandomSubbreedImages(breed:string, subbreed: string){
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/${subbreed}/images/random/15`)
+  }
+
+  getMultipleRandomImages(breed:string){
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/images/random/15`);
   }
 }

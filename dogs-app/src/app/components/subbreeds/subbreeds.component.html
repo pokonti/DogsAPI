@@ -1,0 +1,10 @@
+<p>{{this.breedName}} - {{this.subbreedName}}</p>
+<ul> 
+    <div class="container"> 
+        <li *ngFor="let image of images">
+                <div class="inner">
+                        <img [src]="image" alt="img">
+                </div>
+        </li>
+    </div>
+</ul>
