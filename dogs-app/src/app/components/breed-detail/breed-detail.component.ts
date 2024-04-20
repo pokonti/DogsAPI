@@ -36,5 +36,9 @@ export class BreedDetailComponent implements OnInit{
     });
   }
 
+  getSubbreedImage(){
+    
+  }
+
 
 }

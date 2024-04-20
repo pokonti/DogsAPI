@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from '../model/api';
+import { ApiResponse, Photo } from '../interface/api';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -10,21 +10,21 @@ export class BreedsService {
 
   private BASE_URL: string = 'https://dog.ceo/api';
 
-  constructor(private client: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getDogsAllList(){
-    return this.client.get<ApiResponse>(`${this.BASE_URL}/breeds/list/all`)
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breeds/list/all`)
   }
   getDogsList(){
-    return this.client.get<ApiResponse>(`${this.BASE_URL}/breeds/list`)
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breeds/list`)
   }
 
   getRandomImg(breed: string){
-    return this.client.get<any>(`${this.BASE_URL}/breeds/image/random/`+ breed);
+    return this.http.get<Photo>(`${this.BASE_URL}/breed/${breed}/images/random`);
   }
 
   // getRandomImageDog(breed: string) {
-  //   return this.client.get<any>(`${this.BASE_URL}/image/random/`+ breed).pipe(
+  //   return this.http.get<any>(`${this.BASE_URL}/image/random/`+ breed).pipe(
   //     map(response => {
   //       const imagesMap: { [key: string]: string } = {};
   //       for(const breed in response.message) {
@@ -36,13 +36,17 @@ export class BreedsService {
   // }
 
   searchDog(query: string){
-    return this.client.get<ApiResponse>(`${this.BASE_URL}/list`)
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/list`)
   }
 
   getSubbreed(breed: string){
-    return this.client.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/list`)
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/list`)
     .pipe(
       map(response => response.message)
     );
+  }
+
+  getSubbreedImage(breed:string, subbreed: string){
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/images`)
   }
 }

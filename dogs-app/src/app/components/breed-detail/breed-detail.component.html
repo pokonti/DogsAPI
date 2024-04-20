@@ -1,10 +1,18 @@
-<div *ngIf="subbreeds.length > 0">
-    <ul>
-        <li *ngFor="let subbreed of subbreeds">
-        {{ subbreed }}</li>
-    </ul>
+<br>
+<br>
+<div *ngIf="subbreeds.length > 0; else nodogs" >
+    <div class="container">
+        <ul>
+            <li *ngFor="let subbreed of subbreeds">
+                <div class="inner">
+                    <p> {{ subbreed }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div *ngIf="subbreeds.length == 0">
-    <p>No dogs</p>
-</div>
+<ng-template #nodogs>
+    <p>No sub-breeds found for this breed. </p>
+    <p>But you can take a look at the photos of dogs of this breed. </p>
+</ng-template>

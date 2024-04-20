@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+import { SearchComponent } from "../search/search.component";
 
 @Component({
-  selector: 'app-menu',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, FontAwesomeModule],
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+    selector: 'app-menu',
+    standalone: true,
+    templateUrl: './menu.component.html',
+    styleUrl: './menu.component.css',
+    imports: [RouterLink, RouterLinkActive, SearchComponent]
 })
 export class MenuComponent {
-  faSearch = faSearch;
+
 }

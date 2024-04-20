@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BreedsService } from '../../services/breeds.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -14,41 +14,35 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class BreedsComponent implements OnInit{
   breeds: string[] = [];
   loaded!: boolean;
-  images: any = {}; //any is not what i need
-  dogImagesMap: { [key: string]: string } = {};
+  images: Map<string,string> = new Map();
 
   constructor(private breedsService: BreedsService) {}
+
   ngOnInit(): void {
-    this.loaded = false;
-    this.breedsService.getDogsList().subscribe((response) => {
-    this.breeds = response.message;
-    this.getBreedsImages();
-    this.loaded = true;
-    });
+    this.getDogsList();
   }
-  
+
+  getDogsList(){
+    this.breedsService.getDogsList().subscribe((response) => {
+      this.breeds = response.message;
+      this.getBreedsImages();
+    },
+    (error:any) => console.log(error),
+    () => console.log('Done getting a list'));
+  }
+
   getBreedsImages() {
-    this.breeds.forEach((breed) => this.getRandomImg(breed))
+    this.loaded = false;
+    this.breeds.forEach((breed) => this.getRandomImg(breed));
+    this.loaded = true;
   }
 
   getRandomImg(breed: string){
-    
-    this.breedsService.getRandomImg(breed).subscribe((response) => {
-      this.images[breed] = response.message[0];
-      
-    },
-    error => {
-      console.error('Error fetching random dog images:', error);
-    })
-  }
-
-  // getRandomImages(breed: string){
-  //   this.breedsService.getRandomImageDog(breed).subscribe(imagesMap => {
-  //     this.dogImagesMap = imagesMap;
-  //   }, 
-  //   error => {
-  //     console.error('Error fetching random dog images:', error);
-  //   });
-  // }
-
+    this.breedsService.getRandomImg(breed).subscribe(
+      (response) => {
+        this.images.set(breed, response.message);
+      },
+      (error: any) => console.error('Error fetching random dog images:', error),
+      () => console.log('Done getting images')
+      )}
 }

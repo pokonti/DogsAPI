@@ -1,0 +1,39 @@
+form {
+    position: relative;
+}
+input {
+    width: 100%;
+    height: 10px;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+button {
+    position: absolute;
+    top: 0.5px;
+    right: -18.7px;
+    width: 29px;
+    height: 29px;
+    border: none;
+    border-radius: 50px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 215, 0);
+}
+button fa-icon{
+    color: #fff;
+    transition: all 0.3s ease;
+}
+button fa-icon:hover{
+    color: black;
+}
