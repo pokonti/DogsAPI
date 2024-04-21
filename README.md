@@ -27,7 +27,8 @@ This project aims to provide a user-friendly interface for exploring different d
 * Run the application:
 ```cd dogs-app ```
 ```ng serve```
-
+## Project Details
+You can read more in about page. 
 
 
 
