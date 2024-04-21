@@ -1,13 +1,17 @@
+h1 {
+    text-align: center;
+}
 ul li {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     font-family: sans-serif;
 } 
 .inner {
-    width: 150px;
+    width: 210px;
     margin: 25px;
     display: inline-block;
     border: solid 2px black;
@@ -36,11 +40,11 @@ p {
 
 .container {
     column-count: 5;
-    width: 90%;
+    column-gap: 10px;
     margin: 0 auto;
 }
 .inner2 {
-    width: 100%;
+    width: 210px;
     margin: 5px;
     display: inline-block;
     border: solid 2px black;

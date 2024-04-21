@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="container">
+    <h1>Welcome! 🐶🐾 <br> Do You Like Dogs?</h1>
+    <p>If so, you're in the right place! This web app is dedicated to all dog lovers out there. <br> Whether you're a seasoned dog enthusiast or just discovering your love for these furry companions, here is something exciting for you.<br> 
+     Take a moment to explore our features and discover the wonderful world of dogs. I hope you have a paw-some time!
+        <br> 
+        Ready to begin? Let's dive in!</p>
+    <button (click)="quizStart()">Take the Quiz</button>
+</div>
+<div *ngIf="isQuiz">
+<app-quiz></app-quiz>
+</div>

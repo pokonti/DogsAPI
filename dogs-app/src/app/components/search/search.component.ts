@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +13,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class SearchComponent implements OnInit{
   faSearch = faSearch;
+  searchValue:string = '';
 
   constructor(){}
 
@@ -20,10 +21,15 @@ export class SearchComponent implements OnInit{
    
   }
 
-  searchValue:string = '';
-
   getDogs(){
     console.log(this.searchValue);
     this.searchValue = '';
+  }
+
+  @Output()
+  searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  onSearchTextChanged(){
+    this.searchTextChanged.emit(this.searchValue);
   }
 }

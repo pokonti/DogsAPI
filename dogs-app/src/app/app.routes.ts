@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { BreedsComponent } from './components/breeds/breeds.component';
 import { BreedDetailComponent } from './components/breed-detail/breed-detail.component';
 import { SubbreedsComponent } from './components/subbreeds/subbreeds.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,10 @@ export const routes: Routes = [
     {
         path: 'breeds/:breed/:subbreed',
         component: SubbreedsComponent
+    },
+    {
+        path: 'quiz',
+        component: QuizComponent
     },
     {
         path: '**',

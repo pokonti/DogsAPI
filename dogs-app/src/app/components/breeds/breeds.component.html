@@ -1,17 +1,17 @@
 <h1>Dogs</h1>
-    <ul *ngIf="loaded; else loading">
-        <div class="container">
+<app-search (searchTextChanged)="onSearchTextChanged($event)"></app-search>
+
+    <ul class="container" *ngIf="loaded; else loading">
             <li *ngFor="let breed of breeds">
-                <div class="inner"><a [routerLink]="['/breeds', breed]">
+                <div class="inner" *ngIf="searchText === '' || breed.toLowerCase().includes(searchText)"><a [routerLink]="['/breeds', breed]">
                         <img *ngIf="images.has(breed)" [src]="images.get(breed)" alt="img">
                         <p>{{ breed }}</p>
                     </a>
                     
                 </div>
             </li>
-    </div>
-    </ul>
 
+    </ul>
 <ng-template #loading>
     <div class="loadingpic">
         <img id="load-pic" src="../../../assets/1.gif" alt="">

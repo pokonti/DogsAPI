@@ -45,4 +45,10 @@ export class BreedsService {
   getMultipleRandomImages(breed:string){
     return this.http.get<ApiResponse>(`${this.BASE_URL}/breed/${breed}/images/random/15`);
   }
+
+  getRandomDogImages(cnt: number){
+    return this.http.get<ApiResponse>(`${this.BASE_URL}/breeds/image/random/${cnt}`).pipe(
+      map(response => response.message)
+    );
+  }
 }

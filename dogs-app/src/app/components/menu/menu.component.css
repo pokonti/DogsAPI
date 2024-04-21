@@ -52,8 +52,4 @@ header nav ul li a:hover {
     transition: all .5s ease;
 
 }
-.search-bar {
-    position: relative;
-    margin: 10px 0 10px 10px;
-    width: 300px;
-}
+

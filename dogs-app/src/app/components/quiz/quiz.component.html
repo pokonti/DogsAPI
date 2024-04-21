@@ -1,0 +1,23 @@
+<div class="container" *ngIf="randomDogImage">
+  <img [src]="randomDogImage" alt="Random Dog Image">
+  <div class="question-answers">
+    <p>Which breed is this?</p>
+    <ul>
+      <li *ngFor="let option of options">
+        <button (click)="checkAnswer(option)" [disabled]="showResult">{{ option }}</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="answer" *ngIf="showResult">
+  <p>Your answer is: {{ selectedOption }}</p>
+  <p *ngIf="selectedOption === correctOption; else wrongAnswer">
+    Correct!
+  </p>
+  <ng-template #wrongAnswer>
+    <p>Incorrect. The correct answer is: {{ correctOption }}</p>
+  </ng-template>
+  <button (click)="resetQuiz()">Next Question</button>
+</div>
+

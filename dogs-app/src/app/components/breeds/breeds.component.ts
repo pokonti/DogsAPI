@@ -1,15 +1,18 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BreedsService } from '../../services/breeds.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from '../search/search.component';
 
 
 @Component({
-  selector: 'app-breeds',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
-  templateUrl: './breeds.component.html',
-  styleUrl: './breeds.component.css'
+    selector: 'app-breeds',
+    standalone: true,
+    templateUrl: './breeds.component.html',
+    styleUrl: './breeds.component.css',
+    imports: [CommonModule, RouterLink, RouterLinkActive, FontAwesomeModule, FormsModule, SearchComponent]
 })
 export class BreedsComponent implements OnInit{
   breeds: string[] = [];
@@ -44,5 +47,17 @@ export class BreedsComponent implements OnInit{
       },
       (error: any) => console.error('Error fetching random dog images:', error),
       () => console.log('Done getting images')
-      )}
+    )
+  }
+
+ 
+
+  // search in breeds actually
+  searchText:string = '';
+
+  onSearchTextChanged(searchValue: string){
+    this.searchText = searchValue;
+    // console.log(this.searchText);
+
+  }
 }
