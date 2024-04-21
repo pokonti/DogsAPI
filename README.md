@@ -6,6 +6,9 @@ This project aims to provide a user-friendly interface for exploring different d
 * Search Functionality: Search for a specific dog breed by name.
 * API Integration: Utilize the Dog API to fetch real-time data about dog breeds.
 * Fun and Engaging Features: Implement additional features to entertain and educate users about dogs.
+
+![image](../../Screenshot%202024-04-21%20at%2019.41.36.png)
+
 ## Technologies Used
 * Angular: Front-end framework for building dynamic web applications.
 * HTML/CSS: Markup and styling languages for structuring and designing web pages.
