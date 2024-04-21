@@ -6,7 +6,9 @@ This project aims to provide a user-friendly interface for exploring different d
 * Search Functionality: Search for a specific dog breed by name.
 * API Integration: Utilize the Dog API to fetch real-time data about dog breeds.
 * Fun and Engaging Features: Implement additional features to entertain and educate users about dogs.
-
+## Home page
+![screenshot](Screenshot2.png)
+## Breed page
 ![screenshot](Screenshot1.png)
 
 ## Technologies Used
