@@ -7,7 +7,7 @@ This project aims to provide a user-friendly interface for exploring different d
 * API Integration: Utilize the Dog API to fetch real-time data about dog breeds.
 * Fun and Engaging Features: Implement additional features to entertain and educate users about dogs.
 
-![image](../../Screenshot%202024-04-21%20at%2019.41.36.png)
+![screenshot](Screenshot1.png)
 
 ## Technologies Used
 * Angular: Front-end framework for building dynamic web applications.
