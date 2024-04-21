@@ -17,11 +17,12 @@ This project aims to provide a user-friendly interface for exploring different d
 ### Setting Up a Project
 Install the Angular CLI globally:
 ```npm install -g @angular/cli```
-Run the application:
-```cd dogs-app
-ng serve```
 Install the canvas-confetti library:
 ```npm install canvas-confetti```
+Run the application:
+```cd dogs-app ```
+```ng serve```
+
 
 
 
